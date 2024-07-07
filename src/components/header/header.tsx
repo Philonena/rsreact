@@ -3,14 +3,14 @@ import { Component } from 'react'
 interface Props {
   request: string
   handleRequestChange: (ev: React.ChangeEvent<HTMLInputElement>) => void
-  handleSearchClick: () => void
+  handleOnSubmit: (ev: React.FormEvent) => void
 }
 
 class Header extends Component<Props> {
   render() {
     return (
       <header>
-        <form onSubmit={this.props.handleSearchClick}>
+        <form onSubmit={this.props.handleOnSubmit}>
           <input
             type="text"
             name="requestInput"
