@@ -6,19 +6,18 @@ export const getMoviesByRequest = ({
   request,
   getApiRequest,
 }: GetMoviesType) => {
-  fetch(`${apiUrl}&page=${page}&query=${request}`, options)
-    .then((response) => response.json())
-    .then((response) =>
-      getApiRequest({ array: response.results, isLoad: false })
-    )
-    .catch((err) => console.error(err))
-}
-
-export const getPopularMovies = ({ getApiRequest }: GetMoviesType) => {
-  fetch(`${apiUrlPopular}&page=1`, options)
-    .then((response) => response.json())
-    .then((response) =>
-      getApiRequest({ array: response.results, isLoad: false })
-    )
-    .catch((err) => console.error(err))
+  if (request)
+    fetch(`${apiUrl}&page=${page}&query=${request}`, options)
+      .then((response) => response.json())
+      .then((response) =>
+        getApiRequest({ array: response.results, isLoad: false })
+      )
+      .catch((err) => console.error(err))
+  else
+    fetch(`${apiUrlPopular}&page=1`, options)
+      .then((response) => response.json())
+      .then((response) =>
+        getApiRequest({ array: response.results, isLoad: false })
+      )
+      .catch((err) => console.error(err))
 }

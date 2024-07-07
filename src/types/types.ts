@@ -17,9 +17,11 @@ export type MoviesApiType = {
 
 export type StateType = {
   request: string
+  arrayRequest: string
   page: number
   moviesArray: MoviesApiType[]
   isLoading: boolean
+  isError: boolean
 }
 
 export type ChangeStateType = {
@@ -28,7 +30,24 @@ export type ChangeStateType = {
 }
 
 export type GetMoviesType = {
-  page?: number
-  request?: string
+  page: number
+  request: string
   getApiRequest: ({ array, isLoad }: ChangeStateType) => void
+}
+
+export type HeaderPropsType = {
+  request: string
+  handleRequestChange: (ev: React.ChangeEvent<HTMLInputElement>) => void
+  handleOnSubmit: (ev: React.FormEvent) => void
+  handleCheckError: () => void
+}
+
+export type MainPropsType = {
+  moviesArray: MoviesApiType[]
+  isError: boolean
+  arrayRequest: string
+}
+
+export type CardPropsType = {
+  card: MoviesApiType
 }

@@ -4,7 +4,7 @@ export const apiUrl =
   'https://api.themoviedb.org/3/search/movie?&include_adult=false&language=en-US'
 export const apiUrlPopular =
   'https://api.themoviedb.org/3/movie/popular?language=en-US'
-
+export const imgUrl = 'https://image.tmdb.org/t/p/original/'
 
 export const options = {
   method: 'GET',
